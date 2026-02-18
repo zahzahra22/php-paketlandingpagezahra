@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Studio | Scale Your Conversion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            transition: transform 0.2s;
+        }
+
+        .btn-gradient:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Slider Animation */
+        .slider-track {
+            display: flex;
+            width: calc(250px * 10);
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 5)); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sticky-header py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            LP.Studio
+        </div>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#hero" class="hover:text-blue-400 transition">Beranda</a>
+            <a href="#packages" class="hover:text-blue-400 transition">Paket Layanan</a>
+            <a href="#clients" class="hover:text-blue-400 transition">Klien</a>
+        </nav>
+        <a href="https://wa.me/6285895769733" class="btn-gradient px-5 py-2 rounded-full text-sm font-bold">Konsultasi Gratis</a>
+    </header>
+
+    <section id="hero" class="pt-32 pb-20 px-6 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight reveal">
+            Ubah Pengunjung Jadi <br><span class="text-blue-400">Pembeli Setia.</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-gray-400 text-lg mb-10 reveal">
+            Kami membantu Brand Owner meningkatkan konversi hingga 200% dengan landing page yang estetis, cepat, dan persuasif.
+        </p>
+    </section>
+
+    <div id="clients" class="overflow-hidden py-10 border-y border-white/5 bg-white/5">
+        <div class="slider-track">
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedByWardah</div>
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedByLilybeauty</div>
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedByJimmycom</div>
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedByPearlSkin</div>
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedByEvoskin</div>
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedByKerly</div>
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedBySkintific</div>
+            <div class="w-[250px] flex justify-center items-center text-gray-500 font-bold italic text-xl">TrustedByTruflee</div>
+        </div>
+    </div>
+
+    <section id="packages" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4 reveal">Pilih Paket Amunisi Bisnismu</h2>
+            <p class="text-gray-400">Investasi terbaik untuk skala bisnis yang lebih besar.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-8 rounded-3xl flex flex-col reveal">
+                <h3 class="text-xl font-bold mb-2">Paket Link Bio Premium</h3>
+                <p class="text-3xl font-bold text-blue-400 mb-6">Rp. 350.000</p>
+                <ul class="text-sm text-gray-300 space-y-3 mb-8 flex-grow">
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Foto Profil & Username</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Max 6 Tombol Navigasi</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Katalog 3-5 Produk</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Domain .my.id / .biz.id</li>
+                    <li><i class="fas fa-clock text-yellow-400 mr-2"></i> Kerja: 1 Hari</li>
+                </ul>
+                <a href="link-ke-page-1.html" class="btn-gradient text-center py-3 rounded-xl font-bold">Lihat Preview</a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl flex flex-col reveal">
+                <h3 class="text-xl font-bold mb-2">Paket Starter Business</h3>
+                <p class="text-3xl font-bold text-blue-400 mb-6">Rp. 800.000</p>
+                <ul class="text-sm text-gray-300 space-y-3 mb-8 flex-grow">
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Hero Section & Headline</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> About Us Section</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Galeri 10 Foto</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Domain .com / .biz.id</li>
+                    <li><i class="fas fa-clock text-yellow-400 mr-2"></i> Kerja: 2-3 Hari</li>
+                </ul>
+                <a href="link-ke-page-2.html" class="btn-gradient text-center py-3 rounded-xl font-bold">Lihat Preview</a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl flex flex-col border-blue-500/50 reveal">
+                <div class="bg-blue-500 text-[10px] w-max px-2 py-1 rounded mb-2 font-bold uppercase">Best Value</div>
+                <h3 class="text-xl font-bold mb-2">Paket Sales Conversion</h3>
+                <p class="text-3xl font-bold text-blue-400 mb-6">Rp. 1.100.000</p>
+                <ul class="text-sm text-gray-300 space-y-3 mb-8 flex-grow">
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Copywriting AIDA</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Section Problem & Solution</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Testimonial & FAQ</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Domain .com / .id</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Pricing Table</li>
+                </ul>
+                <a href="link-ke-page-3.html" class="btn-gradient text-center py-3 rounded-xl font-bold">Lihat Preview</a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl flex flex-col reveal">
+                <h3 class="text-xl font-bold mb-2">Paket Visual Showcase</h3>
+                <p class="text-3xl font-bold text-blue-400 mb-6">Rp. 1.500.000</p>
+                <ul class="text-sm text-gray-300 space-y-3 mb-8 flex-grow">
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> High-End Estetik Design</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Lookbook & Video Integration</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Instagram Feed Auto-Sync</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Mobile-Optimized Ultra</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Domain .com / .id</li>
+                </ul>
+                <a href="link-ke-page-4.html" class="btn-gradient text-center py-3 rounded-xl font-bold">Lihat Preview</a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl flex flex-col reveal">
+                <h3 class="text-xl font-bold mb-2">Paket Pro Order Form</h3>
+                <p class="text-3xl font-bold text-blue-400 mb-6">Rp. 2.000.000</p>
+                <ul class="text-sm text-gray-300 space-y-3 mb-8 flex-grow">
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Checkout Form Automatis</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Auto-Direct WhatsApp Data</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> FB/IG Pixel Tracking</li>
+                    <li><i class="fas fa-check text-blue-400 mr-2"></i> Thank You Page</li>
+                    <li><i class="fas fa-clock text-yellow-400 mr-2"></i> Kerja: 5-7 Hari</li>
+                </ul>
+                <a href="link-ke-page-5.html" class="btn-gradient text-center py-3 rounded-xl font-bold">Lihat Preview</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-black/50 py-16 px-6 border-t border-white/10 mt-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <h4 class="text-2xl font-bold mb-4">LP.Studio</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Membantu Brand meningkatkan kredibilitas di dunia digital melalui landing page yang tidak hanya indah, tapi juga menghasilkan profit.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Hubungi Kami</h4>
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center text-gray-400 hover:text-white"><i class="fab fa-whatsapp mr-3 text-green-400"></i> +62 858 9576 9733</a>
+                    <a href="https://www.instagram.com/fauearly" class="flex items-center text-gray-400 hover:text-white"><i class="fab fa-instagram mr-3 text-pink-400"></i>@fauarly</a>
+                    <a href="#" class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-envelope mr-3 text-blue-400"></i> hello@lpstudio.id</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Kenapa Kami?</h4>
+                <p class="text-sm text-gray-400">Kami fokus pada <strong>Conversion Rate Optimization</strong>. Setiap elemen yang kami desain memiliki tujuan untuk memandu audiens melakukan tindakan (Klik/Beli).</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-white/5 text-gray-500 text-xs">
+            &copy; 2026 LP.Studio. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Animations
+        ScrollReveal().reveal('.reveal', {
+            delay: 200,
+            distance: '50px',
+            origin: 'bottom',
+            duration: 1000,
+            interval: 200
+        });
+
+        // Smooth scroll adjustment for sticky header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
