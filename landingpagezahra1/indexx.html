@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKINTIFIC - Skincare Premium</title>
+  <!-- Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ====== RESET & BASE STYLES ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      padding-top: 80px; /* Agar konten tidak tertutup navbar */
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ====== NAVBAR ====== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 15px 0;
+    }
+    
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    /* Brand di kiri */
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .navbar-brand span {
+      color: #d35400;
+    }
+    
+    /* Search di tengah */
+    .search-container {
+      flex: 1;
+      max-width: 500px;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 10px 40px 10px 15px;
+      border: 2px solid #fde2e2;
+      border-radius: 30px;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: #d35400;
+      box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.1);
+    }
+    
+    .search-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #d35400;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    /* Navigasi di kanan */
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+    
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 1.1rem;
+    }
+    
+    .nav-link:hover {
+      color: #d35400;
+    }
+    
+    /* ====== HEADER ====== */
+    .header {
+      background-color: #a1f1ff;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 0 auto 20px;
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      font-size: 1.3rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* ====== NAV BUTTONS ====== */
+    .nav-buttons {
+      background-color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #a1f1ff;
+      color: #333;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 10px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      width: 180px;
+      font-size: 1rem;
+    }
+    
+    .btn i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    
+    .btn:hover {
+      background: #a1f1ff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Mobile View: Tombol diatur 2 baris */
+    @media (max-width: 768px) {
+      .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .search-container {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .btn {
+        display: block;
+        width: 90%;
+        margin: 10px auto;
+      }
+    }
+    
+    /* ====== PRODUCTS ====== */
+    .products {
+      padding: 50px 0;
+      background-color: #fff;
+    }
+    
+    .products h2 {
+      font-size: 2.2rem;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid #6eb9ff;
+    }
+    
+    .product-card h3 {
+      font-size: 1.3rem;
+      padding: 15px;
+      color: #333;
+      text-align: center;
+    }
+    
+    .product-card p {
+      font-size: 1.2rem;
+      color: #00a9d3;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 15px 15px;
+    }
+    
+    .buy-btn {
+      display: block;
+      background: #a3eaff;
+      color: #333;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      border-radius: 8px;
+      margin: 0 15px 15px;
+    }
+    
+    .buy-btn:hover {
+      background: #dae2e4;
+      transform: translateY(-2px);
+    }
+    
+    /* ====== FOOTER ====== */
+    .footer {
+      background-color: #a1f1ff;
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .footer p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .social-links a {
+      color: #333;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+    
+    /* ====== SMOOTH SCROLL ====== */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* ====== SEARCH RESULT ====== */
+    .search-result {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin-top: 10px;
+      display: none;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .search-result-item {
+      padding: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .search-result-item:hover {
+      background: #a1f1ff;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- Brand di kiri -->
+      <a href="#header" class="navbar-brand">SKINTIFIC<span>.</span></a>
+      
+      <!-- Search di tengah -->
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Cari produk..." id="searchInput">
+        <button class="search-btn" id="searchBtn">
+          <i class="fas fa-search"></i>
+        </button>
+        <div class="search-result" id="searchResult"></div>
+      </div>
+      
+      <!-- Navigasi di kanan -->
+      <div class="nav-links">
+        <a href="#header" class="nav-link">Home</a>
+        <a href="#products" class="nav-link">Product</a>
+        <a href="#footer" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header id="header" class="header">
+    <div class="container">
+      <img src="logos.png" alt="Brand Profile" class="profile-img">
+      <h1>SKINTIFIC</h1>
+      <p>Skincare Premium Untuk Kulit Sehat</p>
+    </div>
+  </header>
+
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products">
+    <div class="container">
+      <h2>Produk Paket</h2>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-name="paket glowing">
+          <img src="paket glowing.jpg" alt="Paket Glowing">
+          <h3>Paket Glowing set</h3>
+          <p>Rp 450.000</p>
+          <a href="https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket glowing" class="buy-btn">Beli via WhatsApp</a>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product-card" data-name="paket barier">
+          <img src="paket barier.jpg" alt="Paket Barier">
+          <h3>Paket Barier set</h3>
+          <p>Rp 380.000</p>
+          <a href="https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket barier" class="buy-btn">Beli via WhatsApp</a>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="product-card" data-name="paket acne">
+          <img src="paket acne.jpg" alt="Paket Acne">
+          <h3>Paket Acne set</h3>
+          <p>Rp 400.000</p>
+          <a href="https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket acne" class="buy-btn">Beli via WhatsApp</a>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="product-card" data-name="paket retinol">
+          <img src="paket retinol.jpg" alt="Paket Retinol">
+          <h3>Paket Retinol set</h3>
+          <p>Rp 250.000</p>
+          <a href="https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket retinol" class="buy-btn">Beli via WhatsApp</a>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="product-card" data-name="paket white truffle">
+          <img src="paket white trufel.jpg" alt="Paket White Truffle">
+          <h3>Paket White Truffle</h3>
+          <p>Rp 350.000</p>
+          <a href="https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket white truffle" class="buy-btn">Beli via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">>
+    <div class="container">
+      <p>&copy; 2026 Skintific. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/skintificid"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@skintific_id"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/6285895769733"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://s.shopee.co.id/70EPQitBzB"><i class="fab fa-shopify"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll untuk navbar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Tambahkan efek hover untuk tombol beli
+    document.querySelectorAll('.buy-btn').forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.backgroundColor = '#f8c8c8';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.backgroundColor = '#fde2e2';
+      });
+    });
+
+    // Fitur Pencarian Produk
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchResult = document.getElementById('searchResult');
+    const productCards = document.querySelectorAll('.product-card');
+
+    // Data produk untuk pencarian
+    const products = [
+      { name: 'Paket Glowing set', price: 'Rp 450.000', link: 'https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket glowing' },
+      { name: 'Paket Barier set', price: 'Rp 380.000', link: 'https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket barier' },
+      { name: 'Paket Acne set', price: 'Rp 400.000', link: 'https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket acne' },
+      { name: 'Paket Retinol set', price: 'Rp 250.000', link: 'https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket retinol' },
+      { name: 'Paket White Truffle', price: 'Rp 350.000', link: 'https://wa.me/6285895769733?text=Halo kak saya tertarik dengan produk kakak. Saya mau beli paket white truffle' }
+    ];
+
+    // Fungsi untuk menampilkan hasil pencarian
+    function showSearchResults(query) {
+      searchResult.innerHTML = '';
+      
+      if (query.trim() === '') {
+        searchResult.style.display = 'none';
+        return;
+      }
+
+      const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(query.toLowerCase())
+      );
+
+      if (filteredProducts.length > 0) {
+        filteredProducts.forEach(product => {
+          const item = document.createElement('div');
+          item.className = 'search-result-item';
+          item.innerHTML = `
+            <strong>${product.name}</strong><br>
+            <small>${product.price}</small>
+          `;
+          item.onclick = () => {
+            window.location.href = product.link;
+          };
+          searchResult.appendChild(item);
+        });
+        searchResult.style.display = 'block';
+      } else {
+        searchResult.style.display = 'block';
+        searchResult.innerHTML = '<div class="search-result-item" style="text-align:center;color:#999;">Produk tidak ditemukan</div>';
+      }
+    }
+
+    // Event listener untuk input search
+    searchInput.addEventListener('input', function() {
+      showSearchResults(this.value);
+    });
+
+    // Event listener untuk tombol search
+    searchBtn.addEventListener('click', function() {
+      showSearchResults(searchInput.value);
+    });
+
+    // Tutup hasil pencarian saat klik di luar
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+        searchResult.style.display = 'none';
+      }
+    });
+
+    // Filter produk saat Enter ditekan
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        showSearchResults(this.value);
+      }
+    });
+  </script>
+</body>
+</html>
